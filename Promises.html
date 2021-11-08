@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronus Programming in JavaScript</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    :root {
+        --disp-value: none;
+    }
+
+    .centre {
+        text-align: center;
+    }
+
+    #title-heading {
+        color: orangered;
+        padding: 0.5rem;
+    }
+
+    #title-heading::before {
+        content: open-quote;
+        font-size: 2.5rem;
+        color: red;
+    }
+
+    #title-heading::after {
+        content: close-quote;
+        font-size: 2.5rem;
+        color: red;
+    }
+
+    #tip {
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #tip::after {
+        content: "Press Ctrl+Shift+i on your keyboard to open the console";
+        display: var(--disp-value);
+        background-color: grey;
+        padding: 0.3rem;
+        color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+</style>
+
+<body>
+    <h1 class="centre" id="title-heading">Learning Asynchronus Programming in JavaScript</h1>
+    <h3 class="centre" id="tip">Open the console to learn</h3>
+</body>
+
+<script src="Promises.js"></script>
+<script>
+    let tip = document.getElementById("tip");
+    tip.addEventListener("mouseover", function () {
+        tip.style.cursor = "pointer";
+        document.documentElement.style.setProperty("--disp-value", "inline-block");
+        tip.addEventListener("mouseout", function () {
+            document.documentElement.style.setProperty("--disp-value", "none");
+        });
+    });
+</script>
+
+</html>

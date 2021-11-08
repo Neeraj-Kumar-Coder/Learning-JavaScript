@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 8</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    textarea {
+        border: 5px solid black;
+        padding: 1rem;
+        border-radius: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: 2rem;
+        background-color: black;
+        color: white;
+    }
+
+    .convert {
+        border: 2px solid black;
+        padding: 0.5rem;
+        text-align: center;
+        width: 100px;
+        font-size: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .convert:hover {
+        background-color: rgb(60, 60, 60);
+    }
+
+    .convert:active {
+        background-color: rgb(30, 30, 30);
+    }
+
+    .output {
+        border: 5px solid black;
+        width: 35vw;
+        height: 55vh;
+        border-radius: 20px;
+        padding: 1rem;
+        background-color: orangered;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .output p {
+        font-size: 2rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <h1>Write an HTML page with Javascript that takes a number from one text field in the range 0-999 and displays it in
+        another text field in words. If the number is out of range ,it should show “out of range” and if it is not a
+        number ,it should show “not a number” message in the result box.
+    </h1>
+    <div class="container">
+        <textarea name="input" id="input" cols="30" rows="10" placeholder="Enter your number here"></textarea>
+        <div class="convert" id="btn">
+            <p>Convert</p>
+            <p>&Rightarrow;</p>
+        </div>
+        <div class="output"></div>
+    </div>
+</body>
+
+<script>
+    // Function that converts number to word (range is 0 to 999)
+    function to_word(number) {
+        if (number == 0) {
+            return "zero";
+        }
+
+        if (isNaN(number)) {
+            return "Not A Number";
+        }
+
+        let ones = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine '];
+        let tens_1 = ['Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
+        let tens_2 = ['', '', 'Twenty ', 'Thirty ', 'Fourty ', 'Fifty ', "Sixty ", "Seventy ", "Eighty ", "Ninety "];
+
+        let converted = "";
+        if (number <= 999 && number > 0) {
+            if (Math.floor(number / 100) !== 0) {
+                converted += ones[Math.floor(number / 100)] + 'Hundred ';
+            }
+            if ((Math.floor(number / 10)) % 10 === 1) {
+                converted += tens_1[number % 10];
+            }
+            else {
+                converted += tens_2[(Math.floor(number / 10)) % 10] + ones[number % 10];
+            }
+        }
+        else {
+            converted = "Out Of Range";
+        }
+        return converted;
+    }
+
+    let button = document.getElementById("btn");
+    button.addEventListener("click", function () {
+        let number = document.getElementById("input").value;
+        let numberInWord = to_word(number);
+        let output = document.getElementsByClassName("output")[0];
+        output.innerHTML = `<p> ${number} </p>
+                            <p> ${numberInWord} </p>`;
+        document.getElementById("input").value = "";
+    });
+</script>
+
+</html>

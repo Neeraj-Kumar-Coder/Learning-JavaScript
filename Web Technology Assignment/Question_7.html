@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 7</title>
+</head>
+
+<style>
+    h1,
+    p {
+        font-size: 20px;
+    }
+
+    .prob {
+        background-color: whitesmoke;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border: 3px solid black;
+    }
+
+    input {
+        font-size: 20px;
+        padding: 0.5rem;
+        border-radius: 10px;
+    }
+
+    .btn {
+        padding: 3px;
+        margin: 10px 3px;
+        font-size: 20px;
+        border-radius: 10px;
+        background-color: white;
+        border: 2px solid blueviolet;
+        color: blueviolet;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: blueviolet;
+        color: white;
+    }
+
+    .btn:active {
+        background-color: rgb(119, 36, 196);
+    }
+
+    .output {
+        background-color: blueviolet;
+        color: white;
+        padding: 0.5rem;
+        font-size: 20px;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+        display: none;
+    }
+</style>
+
+<body>
+    <h1>Develop and demonstrate a HTML5 file that includes JavaScript script that uses functions for the following
+        problems:
+        <p>a. Parameter: A string</p>
+        <p>Output: The position in the string of the left-most vowel</p>
+        <p>b. Parameter: A number</p>
+        <p>Output: The number with its digits in the reverse order</p>
+    </h1>
+
+    <div class="A prob">
+        <h2>Problem A</h2>
+        <input type="text" name="string-input" id="string-input" placeholder="Enter the string">
+        <div class="output outputA"></div>
+        <button class="btn" id="btnA">Get position</button>
+    </div>
+
+    <div class="B prob">
+        <h2>Problem B</h2>
+        <input type="number" name="number-input" id="number-input" placeholder="Enter the number">
+        <div class="output outputB"></div>
+        <button class="btn" id="btnB">Get reverse number</button>
+    </div>
+</body>
+
+<script>
+    let btnA = document.getElementById("btnA");
+    btnA.addEventListener("click", function () {
+        let string = document.getElementById("string-input").value;
+        let position = -1;
+        for (let index = 0; index < string.length; index++) {
+            const element = string[index];
+            if (element == 'a' || element == 'e' || element == 'i' || element == 'o' || element == 'u') {
+                position = index;
+                break;
+            }
+        }
+
+        if (position == -1) {
+            document.getElementsByClassName("outputA")[0].innerText = "No vowel is present in the string!";
+        }
+        else {
+            document.getElementsByClassName("outputA")[0].innerText = `The index of leftmost vowel is ${position}`;
+        }
+        document.getElementsByClassName("outputA")[0].style.display = "block";
+    });
+
+
+    let btnB = document.getElementById("btnB");
+    btnB.addEventListener("click", function () {
+        let number = document.getElementById("number-input").value;
+        if (number.length > 0) {
+            number = parseInt(number);
+        }
+        else {
+            number = 0;
+        }
+        let revNum = 0;
+        while (number != 0) {
+            revNum *= 10;
+            revNum += number % 10;
+            number = Math.floor(number / 10);
+        }
+        document.getElementsByClassName("outputB")[0].innerText = `The reverse of the number is ${revNum}`;
+        document.getElementsByClassName("outputB")[0].style.display = "block";
+    });
+</script>
+
+</html>

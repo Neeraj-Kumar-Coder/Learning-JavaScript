@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+</head>
+
+<style>
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        border: 2px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <h1>Write a JavaScript that calculates the squares and cubes of the numbers from 0 to 10 and outputs HTML text that
+        displays the resulting values in an HTML table format.
+    </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NUMBER</th>
+                <th>SQUARE</th>
+                <th>CUBE</th>
+            </tr>
+        </thead>
+        <tbody id="area"></tbody>
+    </table>
+</body>
+
+<script>
+    let html = "";
+    for (let num = 0; num < 11; num++) {
+        html += `
+            <tr>
+                <td>${num}</td>
+                <td>${num * num}</td>
+                <td>${num * num * num}</td>
+            </tr>
+        `;
+    }
+    let populateArea = document.getElementById("area");
+    populateArea.innerHTML = html;
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Notes</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" media="screen and (max-width: 1000px)" href="css/responsive.css">
+</head>
+
+<body>
+    <header id="navbar">
+        <a href="#" id="heading">MAGIC NOTES</a>
+        <div id="searchBox">
+            <input type="text" id="search" placeholder="Search Your Notes Here">
+            <button id="searchBtn" class="btn">Search</button>
+        </div>
+    </header>
+
+    <section>
+        <div class="container1">
+            <h1>WELCOME TO THE MAGIC NOTES</h1>
+            <input type="text" name="title" id="titleOfNote" placeholder="Enter your title here">
+            <textarea id="txtArea" cols="30" rows="10" placeholder="Enter your notes here"></textarea>
+            <div class="buttonDiv">
+                <button id="addNoteBtn" class="btn">Add Note</button>
+                <button id="deleteAllNoteBtn" class="btn delBtn">Delete All Notes</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container2">
+            <h1>Your Notes</h1>
+            <div class="noteCards">
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/index.js"></script>
+
+</html>

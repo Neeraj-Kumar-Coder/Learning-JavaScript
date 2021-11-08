@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+#navbar {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#heading {
+    font-size: 30px;
+    color: red;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#heading:hover {
+    text-shadow: 0px 0px 5px rgba(255, 74, 74, 0.8)
+}
+
+#searchBox {
+    margin-top: 5px;
+}
+
+#search {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.btn {
+    font-size: 15px;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: rgb(97, 97, 253);
+    color: white;
+    border: none;
+}
+
+.btn:hover {
+    background-color: rgb(108, 108, 255);
+}
+
+.btn:active {
+    background-color: rgb(77, 77, 255);
+}
+
+.container1 {
+    padding: 10px;
+    max-width: 50vw;
+    margin: 10px auto;
+    border: 3px solid rgb(103, 32, 168);
+    background-color: rgba(0, 0, 255, 0.055);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container1 h1 {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+
+#txtArea, #titleOfNote {
+    padding: 5px;
+    border: 2px solid rgb(0, 0, 155);
+    border-radius: 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 5px;
+}
+
+#addNoteBtn, #deleteAllNoteBtn {
+    margin: 10px 0px;
+    max-width: 10vw;
+    padding: 10px;
+}
+
+.container2 {
+    max-width: 51vw;
+    margin: 15px auto;
+}
+
+.container2 h1 {
+    font-size: 30px;
+    margin: 5px 0px;
+}
+
+.noteCards {
+    padding: 5px 0px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    max-width: 15vw;
+    max-height: 250px;
+    overflow: auto;
+    padding: 7px;
+    margin: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar {
+    display: none;
+}
+
+.card h3 {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 3px;
+    background-color: rgba(0, 0, 255, 0.459);
+    color: black;
+    border-radius: 5px;
+}
+
+.card p {
+    margin: 5px 0px;
+    padding: 3px;
+    font-family: cursive;
+}
+
+.delBtn {
+    background-color: red;
+}
+
+.delBtn:hover {
+    background-color: rgb(255, 88, 88);
+}
+
+.delBtn:active {
+    background-color: red;
+}

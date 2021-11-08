@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+</head>
+
+<style>
+    h1,
+    h3 {
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 0.5rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+
+    textarea {
+        display: block;
+        margin: auto;
+        border: 3px solid blue;
+        border-radius: 10px;
+        padding: 0.5rem;
+        font-size: 17px;
+    }
+
+    span {
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 00.5rem;
+        padding: 00.5rem;
+        font-size: large;
+        border: 2px solid rgb(132, 0, 255);
+        color: rgb(132, 0, 255);
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    span:hover {
+        background-color: rgb(132, 0, 255);
+        color: white;
+    }
+
+    span:active {
+        background-color: rgb(112, 0, 218);
+    }
+</style>
+
+<body>
+    <h1>Write an HTML page that has one input, which can take multi-line text and a submit button. Once the user clicks
+        the submit button ,it should show the number of characters ,lines and words in the text entered using an alert
+        message. Words are separated with white space and lines are separated with new line characters.
+    </h1>
+
+    <h3>Enter your text here</h3>
+    <textarea name="input" id="input-text" cols="100" rows="20" placeholder="Enter here"></textarea>
+    <span id="submit-btn">Submit</span>
+</body>
+
+<script>
+    let button = document.getElementById("submit-btn");
+    function clickEventHandler() {
+        let text = document.getElementById("input-text").value;
+        document.getElementById("input-text").value = "";
+
+        let characters = 0, words = 0, lines = 0;
+
+        for (let index = 0; index < text.length; index++) {
+            const element = text[index];
+            characters++;
+            if (element == ' ') {
+                words++;
+            }
+            else if (element == '\n') {
+                lines++;
+                words++;
+            }
+        }
+
+        alert(`Number of characters = ${characters}
+Number of Words = ${words + 1}
+Number of lines = ${lines + 1}`); // +1 bcoz last line will not end with a new line character
+    }
+    button.addEventListener("click", clickEventHandler);
+</script>
+
+</html>

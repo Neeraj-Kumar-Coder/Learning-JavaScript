@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 6</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        border: 2px solid grey;
+        background-color: rgba(128, 128, 128, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        height: 50vh;
+        width: 50vw;
+        margin: auto;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #size-show {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <h1>Write a JavaScript code that displays text “TEXT-GROWING” with increasing font size in the interval of 100ms in
+        RED COLOR, when the font size reaches 50pt it displays “TEXT-SHRINKING” in BLUE color. Then the font size
+        decreases to 5pt.
+    </h1>
+
+    <div class="container">
+        <span id="text"></span>
+        <p id="size-show"></p>
+    </div>
+</body>
+
+<script>
+    let text = document.getElementById("text");
+    let sizeShow = document.getElementById("size-show");
+    let fontSize = 5;
+
+    function sizer() {
+        text.innerText = "TEXT-GROWING";
+        text.style.fontSize = `${fontSize}px`;
+        sizeShow.innerText = `Font size = ${fontSize}px`;
+        text.style.color = "red";
+        for (let count = 1; count < 46; count++) {
+            setTimeout(() => {
+                fontSize++;
+                text.style.fontSize = `${fontSize}px`;
+                sizeShow.innerText = `Font size = ${fontSize}px`;
+            }, 100 * count);
+        }
+
+        setTimeout(() => {
+            text.innerText = "TEXT-SHRINKING";
+            text.style.fontSize = `${fontSize}px`;
+            text.style.color = "blue";
+            for (let count = 1; count < 46; count++) {
+                setTimeout(() => {
+                    fontSize--;
+                    text.style.fontSize = `${fontSize}px`;
+                    sizeShow.innerText = `Font size = ${fontSize}px`;
+                }, 100 * count);
+            }
+        }, 100 * 45);
+    }
+
+    sizer();
+    setInterval(sizer, 90 * 100);
+</script>
+
+</html>

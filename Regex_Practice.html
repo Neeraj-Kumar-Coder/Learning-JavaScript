@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGEX Practice</title>
+    <link rel="shortcut icon" href="https://static.javatpoint.com/tutorial/regex/images/regex-tutorial.png"
+        type="image/x-icon">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    header h1 {
+        position: relative;
+        display: inline-block;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-transform: uppercase;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: blueviolet;
+        z-index: 0;
+        font-size: 2vw;
+    }
+
+    header h1::before {
+        content: "";
+        position: absolute;
+        background-color: blueviolet;
+        width: 100vw;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -2;
+    }
+
+    header h1::after {
+        content: "";
+        position: absolute;
+        background-color: white;
+        left: -5%;
+        right: -5%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        width: 75vw;
+        margin: 1vw auto;
+        font-size: 1vw;
+        padding: 0.5vw;
+    }
+
+    section>input {
+        padding: 0.5vw;
+        border: none;
+        outline: none;
+        border-radius: 0.3vw;
+        border-bottom: 2px solid black;
+        font-size: 1vw;
+        margin: 2vw 1vw;
+    }
+
+    section .checkbox {
+        margin: 0.5vw;
+        padding: 0.5vw;
+    }
+
+    section .checkbox label,
+    input {
+        margin: 1vw;
+        margin-left: 0;
+    }
+
+    section span {
+        padding: 0.5vw 1vw;
+        margin: 1vw 0.5vw;
+        font-size: 1.1vw;
+        width: 10vw;
+        border: 2px solid blueviolet;
+        color: blueviolet;
+        border-radius: 0.5vw;
+        cursor: pointer;
+        transition: all 100ms linear;
+    }
+
+    section span:hover {
+        background-color: blueviolet;
+        color: white;
+    }
+
+    section span:active {
+        background-color: rgb(120, 35, 200);
+    }
+
+    #showoutput {
+        padding: 0.5vw;
+        margin: 2vw 1vw;
+    }
+
+    #showoutput h2 {
+        text-decoration: underline;
+    }
+
+    #showoutput p {
+        margin: 0.5vw 1vw;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Regular Expression Practice</h1>
+    </header>
+    <section>
+        <input type="text" name="regex" id="regex" placeholder="Enter your RegeX here (e.g. regex)">
+        <div class="checkbox">
+            <h3>Flags</h3>
+            <input type="checkbox" name="global" id="global">
+            <label for="global">Global</label>
+            <input type="checkbox" name="case-insensitive" id="case-insensitive">
+            <label for="case-insensitive">Case Insensitive</label>
+        </div>
+        <input type="text" name="string" id="string"
+            placeholder="Enter your string here (e.g. This is a sample string)">
+        <div class="buttons">
+            <span id="find-match">Show Match Results</span>
+            <span id="clear-result">Clear Result</span>
+        </div>
+        <div id="showoutput"></div>
+    </section>
+</body>
+
+<script src="./Regex_Practice.js"></script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        --background-color: orange;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        height: 50vh;
+        width: 50vw;
+        background-color: var(--background-color);
+        margin: auto;
+        display: none;
+    }
+
+    #btn {
+        font-size: 50px;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <button id="btn">click me</button>
+    <div class="container">
+        <button id="clost" style="font-size: 20px;">X</button>
+    </div>
+</body>
+
+<script>
+    let button = document.getElementById("btn");
+    button.addEventListener("click", function () {
+        document.getElementsByClassName("container")[0].style.display = "block";
+        button.style.display = "none";
+    });
+
+    // setTimeout(() => {
+    //     document.getElementsByClassName("container")[0].style.display = "block";
+    //     document.getElementById("btn").style.display = "none";
+    // }, 3000);
+
+    let clost = document.getElementById("clost");
+    clost.addEventListener("click", function () {
+        document.getElementsByClassName("container")[0].style.display = "none";
+        button.style.display = "inline";
+    });
+</script>
+
+</html>

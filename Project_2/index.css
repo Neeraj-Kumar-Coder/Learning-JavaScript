@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+header {
+    background-color: black;
+}
+
+header h1 {
+    text-align: center;
+    color: black;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+header h1::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    z-index: -1;
+}
+
+#booksmanagement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    background-color: black;
+    color: white;
+}
+
+#booksmanagement>h1 {
+    font-size: 2rem;
+}
+
+#booksmanagement form {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+#booksmanagement form input {
+    font-size: 1.3rem;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    border: none;
+}
+
+.form-feeds {
+    margin: 0.5rem;
+}
+
+.form-feeds button {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: blueviolet;
+    border: none;
+    cursor: pointer;
+}
+
+.form-feeds button:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+#booklist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#booklist h1 {
+    font-size: 2rem;
+}
+
+#booklist table thead, th {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#booklist table, tr, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}

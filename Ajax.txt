@@ -1,0 +1,2 @@
+This is a sample file whose data will be fetched using the Ajax request in Vanilla JavaScript.
+    -by JavaScript

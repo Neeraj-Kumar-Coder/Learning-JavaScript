@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <h1>LIBRARY MANAGEMENT SYSTEM</h1>
+    </header>
+
+    <section id="booksmanagement">
+        <h1>BOOKS MANAGEMENT</h1>
+        <div class="formcontainer">
+            <form action="#" id="bookform">
+                <div class="form-feeds">
+                    <label for="bookName">Book Name: </label>
+                    <input type="text" name="bookName" id="bookName" placeholder="Book Name">
+                </div>
+                <div class="form-feeds">
+                    <label for="bookAuthor">Book Author: </label>
+                    <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Book Author">
+                </div>
+                <div class="form-feeds">
+                    Type:
+                    <div class="bookType form-feeds">
+                        <label for="action">Action </label>
+                        <input type="radio" name="type" id="action">
+                    </div>
+                    <div class="bookType form-feeds">
+                        <label for="programming">Programming </label>
+                        <input type="radio" name="type" id="programming">
+                    </div>
+                    <div class="bookType form-feeds">
+                        <label for="horror">Horror </label>
+                        <input type="radio" name="type" id="horror">
+                    </div>
+                </div>
+                <div class="form-feeds">
+                    <button type="submit" id="submit">Add Book</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="booklist">
+        <h1>LIST OF BOOKS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Book Name</th>
+                    <th>Book Author</th>
+                    <th>Book Type</th>
+                </tr>
+            </thead>
+            <tbody id="bookshow">
+            </tbody>
+        </table>
+    </section>
+</body>
+
+<script src="index.js"></script>
+
+</html>
