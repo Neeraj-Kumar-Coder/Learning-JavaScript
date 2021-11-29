@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 5vw;
+        color: white;
+        background-color: black;
+    }
+
+    h1::before {
+        content: open-quote;
+        color: red;
+    }
+
+    h1::after {
+        content: close-quote;
+        color: red;
+    }
+
+    .clk {
+        font-size: 3vw;
+        margin: 2vw;
+        padding: 1vw;
+    }
+
+    small {
+        font-size: 2vw;
+    }
+</style>
+
+<body>
+    <h1>
+        This is a Stopwatch
+    </h1>
+
+    <div class="clk">
+        <p id="timer">00:00:00 <small>00</small> AM</p>
+    </div>
+</body>
+
+<script>
+    console.log("This is a clock");
+    let clk = document.querySelector(".clk");
+    let hour, minute, second, milliseconds, state;
+    [hour, minute, second, milliseconds, state] = [00, 00, 00, 00, "AM"];
+
+    function updateTime() {
+        if (milliseconds < 99) {
+            milliseconds++;
+        }
+        else {
+            milliseconds = 00;
+            if (second < 59) {
+                second++;
+            }
+            else {
+                second = 00;
+                if (minute < 59) {
+                    minute++;
+                }
+                else {
+                    minute = 00;
+                    if (hour < 11) {
+                        hour++;
+                    }
+                    else {
+                        hour = 00;
+                        state = state == "AM" ? "PM" : "AM";
+                    }
+                }
+            }
+        }
+        clk.innerHTML = `<p id="timer">${hour.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}:${minute.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}:${second.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })} <small>${milliseconds.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}</small> AM</p>`;
+    }
+
+    setInterval(updateTime, 10);
+</script>
+
+</html>

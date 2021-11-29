@@ -15,6 +15,7 @@
         margin: 0;
         padding: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-decoration: none;
     }
 
     header h1 {
@@ -83,7 +84,9 @@
     }
 
     section span {
-        padding: 0.5vw 1vw;
+        display: inline-block;
+        text-align: center;
+        padding: 0.7vw;
         margin: 1vw 0.5vw;
         font-size: 1.1vw;
         width: 10vw;
@@ -115,11 +118,19 @@
     #showoutput p {
         margin: 0.5vw 1vw;
     }
+
+    a:visited {
+        color: inherit;
+    }
 </style>
 
 <body>
     <header>
-        <h1>Regular Expression Practice</h1>
+        <h1>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">
+                Regular Expression Practice
+            </a>
+        </h1>
     </header>
     <section>
         <input type="text" name="regex" id="regex" placeholder="Enter your RegeX here (e.g. regex)">

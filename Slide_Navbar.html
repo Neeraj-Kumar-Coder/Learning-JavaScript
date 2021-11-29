@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide NavBar</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    nav {
+        background-color: black;
+        color: white;
+        display: inline-block;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 1rem;
+        transform: translateX(-100%);
+        transition: all 500ms ease-out;
+    }
+
+    .moveit {
+        transform: translateX(0%);
+    }
+
+    nav ul li a {
+        font-size: 2rem;
+        line-height: 3;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: white;
+    }
+
+    span {
+        font-size: 2rem;
+        cursor: pointer;
+        border: 2px solid blueviolet;
+        color: blueviolet;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        transition: all 100ms linear;
+    }
+
+    span:hover {
+        background-color: blueviolet;
+        color: white;
+    }
+
+    span:active {
+        background-color: rgb(111, 32, 185);
+    }
+</style>
+
+<body>
+    <nav>
+        <ul>
+            <li style="text-align: center;"> <a href="#">Home</a></li>
+            <li style="text-align: center;"> <a href="#">Services</a></li>
+            <li style="text-align: center;"> <a href="#">About Us</a></li>
+            <li style="text-align: center;"> <a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <span>Open the NavBar Right Now!!</span>
+</body>
+
+<script>
+    let btn = document.getElementsByTagName("span")[0];
+    btn.addEventListener("click", () => {
+        let nav = document.getElementsByTagName("nav")[0];
+        nav.classList.toggle("moveit");
+        nav.toggleAttribute("moveitnow");
+        if (nav.hasAttribute("moveitnow")) {
+            btn.innerText = "Close the NavBar Right Now!!";
+        }
+        else {
+            btn.innerText = "Open the NavBar Right Now!!";
+        }
+    });
+</script>
+
+</html>

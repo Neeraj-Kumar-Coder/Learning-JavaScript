@@ -29,6 +29,36 @@
         <h2>List of the Students</h2>
         <ul id="stdlist"></ul>
     </div>
+
+    <code>
+        <h2>This is Iterator</h2>
+        function legendIterator(iterable) {
+            let nextIndex = 0;
+            return {
+                next: function () {
+                    if (nextIndex &lt; iterable.length) {
+                        return {
+                            value: iterable[nextIndex++],
+                            done: false
+                        }
+                    }
+                    else {
+                        return {
+                            value: undefined,
+                            done: true
+                        }
+                    }
+                }
+            }
+        }
+        <h2>This is Generator</h2>
+        function* legendGenerator(){
+            let i=0;
+            while(true){
+                yield i++;
+            }
+        }
+    </code>
 </body>
 
 <!-- <script src="Element_Selectors.js"></script> -->
@@ -47,6 +77,11 @@
 <!-- <script src="./Error_Handling.js"></script> -->
 <!-- <script src="./Regular_Expression.js"></script> -->
 <!-- <script src="./Iterators.js"></script> -->
-<script src="./Generators.js"></script>
+<!-- <script src="./Generators.js"></script> -->
+<!-- <script src="./For_Loops.js"></script> -->
+<!-- <script src="./Maps.js"></script> -->
+<!-- <script src="./Sets.js"></script> -->
+<!-- <script src="./Symbols.js"></script> -->
+<script src="./Destructuring.js"></script>
 
 </html>
