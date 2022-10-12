@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252324;
+}
+
+#clock {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border: 30px solid black;
+    background-image: url("https://i.pinimg.com/originals/70/1f/dd/701fdd0228fd4e9ef9877be8dabcb5ca.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+}
+
+#center-joint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    background-color: #252324;
+    transform: translate(-50%, -50%);
+}
+
+#hour {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 5px;
+    width: 20%;
+    background-color: #252324;
+    transform-origin: left;
+}
+
+#minute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 30%;
+    background-color: #252324;
+    transform-origin: left;
+}
+
+#second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 3px;
+    width: 35%;
+    background-color: #252324;
+    transform-origin: left;
+}
