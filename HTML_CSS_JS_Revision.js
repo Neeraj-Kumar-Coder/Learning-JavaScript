@@ -44,3 +44,157 @@ glowBtn.addEventListener("click", () => {
         }, 300);
     }
 });
+
+// Promise from here
+let myPromise = new Promise((resolve, reject) => {
+    resolve(7);
+});
+
+myPromise.then((value) => {
+    console.log(`Promise is resolved with value ${value}`);
+}, (error) => {
+    console.log(`Promise is rejected with error : ${error}`);
+});
+
+// Promise chaining
+let basePromise = new Promise((resolve, reject) => {
+    resolve("I am resolved");
+});
+
+basePromise.then((value) => {
+    console.log(value);
+    return new Promise((resolve, reject) => {
+        resolve("This is second promise that is being resolved");
+    });
+}).then((value) => {
+    console.log(value);
+    return "Finally I am resolving out!";
+}).then((value) => {
+    console.log(value);
+}).catch((error) => {
+    console.log(error);
+});
+
+// Attaching multiple handlers to a Promise
+let multiHandlePromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("I am resolved after 3 seconds");
+    }, 3000);
+});
+
+multiHandlePromise.then((value) => {
+    console.log(`This is from handler number 1 : ${value}`);
+});
+
+multiHandlePromise.then((value) => {
+    console.log(`Lets concatinate the result ${">>>" + value + "<<<"}`);
+});
+
+// Learning about Promise API
+
+let promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("I am resolved with value 1!");
+    }, 1000);
+});
+
+let promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("I am resolved with value 2!");
+    }, 2000);
+});
+
+let promise3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("I am resolved with value 3!");
+    }, 3000);
+});
+
+// >>>>>>>This is the classical method that we would do if we want to run a piece of code that should execute after all the promise gets resolved
+// promise1.then((value1) => {
+//     promise2.then((value2) => {
+//         promise3.then((value3) => {
+//             console.log(value1, value2, value3);
+//         });
+//     });
+// });
+
+// let promise_all = Promise.all([promise1, promise2, promise3]);
+// let promise_all = Promise.allSettled([promise1, promise2, promise3]);
+// let promise_all = Promise.race([promise1, promise2, promise3]);
+let promise_all = Promise.any([promise1, promise2, promise3]);
+promise_all.then((value) => {
+    console.log(value);
+});
+
+// async - await in JS
+function getPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`Hey! I am resolved`);
+        }, 3000);
+    });
+}
+
+const data = async () => {
+    let value = await getPromise();
+    console.log(value);
+}
+
+data();
+
+// try catch
+console.log("Revising the concepts of JavaScript");
+
+try {
+    // setTimeout(() => {
+    //     throw new Error("This is NOT a valid script");
+    // }, 0);
+    throw new Error("This is NOT a valid script");
+} catch (error) {
+    console.log(error);
+}
+
+console.log("This is the last line of the script");
+
+try {
+    console.log(variableNotDefined);
+}
+catch (error) {
+    console.log(error);
+}
+finally {
+    console.log("This is always run irrespective of any error in the try and catch block");
+}
+
+
+const loadScript = async (src) => {
+    return new Promise((resolve, reject) => {
+        const element = document.createElement("script");
+        element.src = src;
+        document.head.appendChild(element);
+        element.onload = () => {
+            resolve(src);
+        }
+        element.onerror = (reason) => {
+            reject(reason)
+        }
+    });
+}
+
+async function loadIt() {
+    console.time("startedLoading");
+    const result = await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js");
+    console.log(result);
+    console.timeEnd("startedLoading");
+}
+
+loadIt();
+
+// Fetch API
+const getUsers = async () => {
+    let response = await fetch("https://reqres.in/api/users");
+    console.log(await response.json());
+}
+
+getUsers();
