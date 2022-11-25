@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #262525;
+        }
+
+        li {
+            position: relative;
+            color: white;
+            font-size: 1.3rem;
+            padding: 0.3rem 0rem;
+            margin: 0.3rem;
+            cursor: pointer;
+        }
+
+        li::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 1.5px;
+            width: 0%;
+            margin: auto;
+            background-color: white;
+            transition: all 150ms linear;
+        }
+
+        li:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #262525;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 150ms linear;
+        }
+
+        #btn:hover {
+            transform: scale(1.1);
+            color: white;
+            background-color: #262525;
+        }
+
+        #btn:active {
+            transform: scale(1) !important;
+        }
+
+        .wrapper {
+            font-size: 2rem;
+        }
+
+        .alphabets {
+            opacity: 0;
+        }
+
+        .reveal {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Achievements</li>
+            <li>About Me</li>
+            <li>Contact Me</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <span id="btn">Reveal The Secret</span>
+
+        <div class="wrapper">
+            <span class="alphabets">N</span><span class="alphabets">E</span><span class="alphabets">E</span><span
+                class="alphabets">R</span><span class="alphabets">A</span><span class="alphabets">J</span><span
+                class="alphabets"> </span><span class="alphabets">K</span><span class="alphabets">U</span><span
+                class="alphabets">M</span><span class="alphabets">A</span><span class="alphabets">R</span>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector("#btn");
+        const alphabets = Array.from(document.getElementsByClassName("alphabets"));
+
+        const sleep = async (delay) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(delay * 1000);
+                }, delay * 1000);
+            });
+        }
+
+        btn.addEventListener("click", async (e) => {
+            for (let index = 0; index < alphabets.length; index++) {
+                const element = alphabets[index];
+                element.style.opacity = "1";
+                await sleep(0.5);
+            }
+        });
+    </script>
+</body>
+
+</html>
